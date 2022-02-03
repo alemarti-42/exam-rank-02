@@ -92,7 +92,7 @@ char	*ft_itoa_base(long int nbr, char *base)
 	i = 0;
 	if (nbr == 0)
 	{
-		res[0] = '0';
+		res[0] = base[0];
 		return (res);
 	}
 	if (nbr < 0)
@@ -100,18 +100,15 @@ char	*ft_itoa_base(long int nbr, char *base)
 		nbr *= -1;
 		neg_flag = 1;
 	}
-////	printf("ESTAMOS itoabase %ld\n", nbr);
 	while (nbr > 0)
 	{
 		res[i] = base[nbr % ft_strlen(base)];
 		nbr /= ft_strlen(base);
 		i++;
 	}
-//	printf("ESTAMOS itoabase %s\n", res);
 	if (neg_flag == 1)
 		res[i] = '-';
 	mirror_array(res);
-//	printf("ESTAMOS itoabase final %s\n", res);
 	return (res);
 }
 

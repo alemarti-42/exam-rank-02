@@ -35,14 +35,8 @@ char	*get_next_line(int fd)
 	buffer[0] = 0;
 	buffer[1] = 0;
 	res = 0;
-	
-	//printf("GNL\n");
 	while (buffer[0] != '\n' && read(fd, &buffer[0], BUFFER_SIZE*0+1) && buffer[0] != 0)
-	{
-		//printf("GNLwhile: %s\n", res);
 		res = add_char_to_str(buffer[0], res);
-		//printf("GNLwhile: %s\n", res);
-	}
 	return(res);
 }
 
@@ -52,9 +46,7 @@ int	ft_strlen(char *str)
 	if (!str)
 		return (-1);
 	while(str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -69,7 +61,6 @@ char	*add_char_to_str(char chr, char *str)
 		str = (char *)malloc(1);
 		str[0] = 0;
 	}
-	//printf("addchartostr1: %s\n", str);
 	init_len = ft_strlen(str);
 	swap = (char *)malloc(init_len + 2);
 	swap[init_len + 1] = 0;
@@ -81,7 +72,5 @@ char	*add_char_to_str(char chr, char *str)
 	swap[i] = chr;
 	free (str);
 	str = swap;
-	//printf("addchartostr2: %s\n", str);
 	return (str);
 }
-
